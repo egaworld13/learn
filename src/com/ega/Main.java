@@ -5,31 +5,58 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        String [] dati ={"1","2","3"};//Šeit glabāsim vārdu,paroli,epastu.
+
         System.out.println("Reģistrācija");
         //1. USER
         //Vārds
         System.out.println("Lietotāja vārds:");
         String name =sc.nextLine();
-        dati[0] = name;//ieraksta ievadīto vārdu array "1" vietā
-
         //Parole
             System.out.println("Parole:");
-           String pas = sc.nextLine();
-        while (pas.length()<8){// kritērijs, lai parole nav īsāka par 8 simboliem,
-            System.out.print("Vismaz 8 simboli:");// šis leks ārā, kamēr nebūs 8 simboli.
-            pas = sc.next();}
-
-        dati[1] = pas;//ieraksta ievadīto paroli array "2" vietā
-
+            String pas = sc.nextLine();
+        while (pas.length()<8){  // kritērijs, lai parole nav īsāka par 8 simboliem,
+                System.out.print("Vismaz 8 simboli:"); // šis leks ārā, kamēr nebūs 8 simboli.
+                pas = sc.next();}
            //epasts
             System.out.println("Epasts:");
             String email = sc.nextLine();
-        dati[2] = email;//ieraksta ievadīto epastu array "3" vietā
-//TESTS
-        System.out.println(dati[0]);
-        System.out.println(dati[1]);
-        System.out.println(dati[2]);
+        while (email.length()<10){
+            System.out.print("Vismaz 10 simboli:");
+            email = sc.next();}
+
+        System.out.println(name);
+        System.out.println(pas);
+        System.out.println(email);
+        System.out.println("Jūs esat reģistrējies :)");
+//LOGIN
+
+        System.out.println("Ievadiet Lietotājvārdu:");
+        String logname = sc.nextLine();
+
+        System.out.println("Ievadiet paroli:");
+        String logpas = sc.nextLine();
+
+        if (logname.equals(name) && logpas.equals(pas)){   // && ir un; || ir vai; ! ir not
+            System.out.println("Welcome!"+logname);
+        }
+        else {
+            System.out.println("Mēģiniet vēlāk vēlreiz =]");
+                   }
+        // Aktīvs profils
+        System.out.println("Čau kā tev iet, reku tavi dati:");
+        System.out.println("Leitotājvārds: "+name);
+        System.out.println("Leitotājvārds: "+email);
+        System.out.println("Leitotājvārds: "+pas);
+// LOGOUT
+        System.out.println("Vēlaties iziet? y/n");
+        String exit = sc.nextLine();
+        if (exit.equals("y")){
+            System.out.println("See you later "+name);
+        }
+
+
+
 
         }
 }
+
